@@ -9,7 +9,7 @@ namespace Checkout.Payment.Core.Interfaces
 {
     public interface IPaymentTransactionService
     {
-        public PaymentResponse SendPayment(PaymentTransaction payment);
-        public PaymentTransaction GetPayment(Guid paymentId);
-    }
+        Task<PaymentTransactionResponse> GetPayment(string paymentId);
+        Task<PaymentTransactionResponse> SendPayment(PaymentTransactionRequest payment);
+    }   
 }

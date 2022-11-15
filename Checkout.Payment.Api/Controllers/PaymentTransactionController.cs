@@ -17,35 +17,33 @@ namespace Checkout.Payment.Api.Controllers
             _paymentTransactionService = paymentService;
         }
 
-        public ActionResult GetTransaction(Guid id)
+        [HttpGet]
+        public async Task<ActionResult> GetTransaction(Guid id)
         {
             try
             {
-                //TODO: not found case
-                var result = _paymentTransactionService.GetPayment(id);
-                return StatusCode(200, result);
+                var result = await _paymentTransactionService.GetPayment(id.ToString());
+                return new OkObjectResult(result);
             }
             catch (Exception e)
             {
-                //TODO: Return error message
-                Console.WriteLine(e);
-                throw;
+                _logger.LogError(e.Message);
+                return new StatusCodeResult(500);
             }
         }
 
-        public ActionResult SendTransaction([FromBody]PaymentTransaction payment)
+        [HttpPost]
+        public async Task<ActionResult> SendTransaction([FromBody]PaymentTransactionRequest payment)
         {
             try
             {
-                //TODO: Validation
-                var result = _paymentTransactionService.SendPayment(payment);
-                return StatusCode(200, result);
+                var result = await _paymentTransactionService.SendPayment(payment);
+                return new OkObjectResult(result);
             }
             catch (Exception e)
             {
-                //TODO: return error message
-                Console.WriteLine(e);
-                throw;
+                _logger.LogError(e.Message);
+                return new StatusCodeResult(500);
             }
         }
     }

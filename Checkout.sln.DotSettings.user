@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=10256f56_002D4878_002D4687_002D9c1b_002Dd6c3fc447b61/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="SendPaymentShouldSendTransactionToBank #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::47B7D516-DF27-4AF0-B4DD-3F461FB0A1FC::net6.0::Checkout.Payment.Test.PaymentTransactionServiceTest.SendPaymentShouldSendTransactionToBank&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8920d3dd_002D7493_002D488a_002Da428_002D6a172fb4d208/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SendPaymentShouldSendTransactionToBank" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::47B7D516-DF27-4AF0-B4DD-3F461FB0A1FC::net6.0::Checkout.Payment.Test.PaymentTransactionServiceTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -8,22 +8,25 @@ using Checkout.Payment.Core.Models.Enums;
 
 namespace Checkout.Payment.Core.Models
 {
-    public class PaymentTransaction
+    public class PaymentTransactionRequest
     {
-        [Key]
-        [Required]
-        public string PaymentId { get; set; }
         [Required]
         public string MerchantId { get; set; }
+        [MaxLength(60)]
         public string CustomerName { get; set; }
+        [Required]
+        [MaxLength(60)]
+        public string CardName { get; set; }
+        [Required]
+        [MaxLength(16)]
+        public string CardNumber { get; set; }
+        [Required]
+        public int Cvv { get; set; }
+        public DateTime ExpireDate { get; set; }
+        [Required]
         public decimal Amount { get; set; }
         public Currencies Currency { get; set; }
         [Required]
-        public string CardName { get; set; }
-        [Required]
-        public string CardNumer { get; set; }
         public DateTime TransactionTime { get; set; }
-        public DateTime BankConfirmationTime { get; set; }
-        public PaymentStatus PaymentStatus { get; set; }
     }
 }

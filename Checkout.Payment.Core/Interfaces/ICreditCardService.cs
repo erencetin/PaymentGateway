@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Checkout.Payment.Core.Models
+namespace Checkout.Payment.Core.Interfaces
 {
-    public class PaymentResponse
+    public interface ICreditCardService
     {
+        string MaskCardNumber(string cardNumber);
     }
 }
