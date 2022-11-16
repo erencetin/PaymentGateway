@@ -60,4 +60,12 @@ And a sample response body:
   "status": 0
 }
 ```
+# Improvements
+- Use a db instead of inMemory database. 
+- Integration tests should be implemented. 
+- Token based authentication. 
+- Tests should  cover repository and controller classes.
+- A validation for payment transaction request.
+
+
 
