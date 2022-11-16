@@ -9,15 +9,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.6" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Checkout.Payment.Core\Checkout.Payment.Core.csproj" />
     <ProjectReference Include="..\Checkout.Payment.Infrastructure\Checkout.Payment.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="SwaggerExamples\" />
   </ItemGroup>
 
 </Project>

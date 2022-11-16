@@ -7,6 +7,7 @@ using Moq;
 
 namespace Checkout.Payment.Test
 {
+    [TestFixture]
     public class PaymentTransactionServiceTest
     {
         private Mock<IAcquiringBankIntegrationService> _mockAcquireBankIntegration;
@@ -58,6 +59,31 @@ namespace Checkout.Payment.Test
 
             Assert.AreEqual(expectedGuid, result.PaymentId);
             Assert.AreEqual(PaymentStatus.Successful, result.Status);
+        }
+
+        [Test]
+        public async Task GetPaymentShouldReturnCorrectResponse()
+        {
+            var expectedTransaction = new PaymentTransaction()
+            {
+                Amount = 10,
+                BankConfirmationTime = DateTime.Now,
+                CardName = "Name",
+                CardNumer = "1234",
+                CustomerName = "Test name",
+                Currency = Currencies.GBP,
+                MerchantId = "1234",
+                PaymentId = "payment123",
+                PaymentStatus = PaymentStatus.Successful,
+                TransactionTime = DateTime.Now
+            };
+           
+            _paymentRepository.Setup(p => p.GetPaymentDetailsByPaymentId("payment123"))
+                .ReturnsAsync(expectedTransaction);
+
+            var response = await _paymentTransactionService.GetPayment("payment123");
+            Assert.IsNotNull(response);
+            Assert.AreEqual("payment123", response.PaymentId);
         }
     }
 }

@@ -1,7 +1,8 @@
-﻿using Checkout.Payment.Core.Interfaces;
+﻿using Checkout.Payment.Api.SwaggerExamples;
+using Checkout.Payment.Core.Interfaces;
 using Checkout.Payment.Core.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace Checkout.Payment.Api.Controllers
 {
@@ -18,7 +19,8 @@ namespace Checkout.Payment.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetTransaction(Guid id)
+        [SwaggerResponseExample(StatusCodes.Status200OK, typeof(PaymentTransactionResponseExample))]
+        public async Task<ActionResult<PaymentTransactionResponse>> GetTransaction(string id)
         {
             try
             {
@@ -33,7 +35,10 @@ namespace Checkout.Payment.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> SendTransaction([FromBody]PaymentTransactionRequest payment)
+        [SwaggerRequestExample(typeof(PaymentTransactionRequest), typeof(PaymentTransactionRequestExample))]
+        [SwaggerResponseExample(StatusCodes.Status200OK, typeof(PaymentTransactionResponseExample))]
+        [ProducesResponseType(typeof(PaymentTransactionResponse), StatusCodes.Status200OK)]
+        public async Task<ActionResult<PaymentTransactionResponse>> SendTransaction([FromBody]PaymentTransactionRequest payment)
         {
             try
             {
